@@ -1,0 +1,38 @@
+string minWindow(string s,string t)
+{
+  int n1=s.length();
+  int n2=t.length();
+  if(n1<n2)
+  return "";
+  int t_hash[256]={0};
+  int s_hash[256]={0};
+  for(int i=0;i<n2;i++)
+    t_hash[t[i]++;
+  int count=0;
+  int start=0;
+  int res=INT_MAX,start_index=-1;
+  for(int i=0;i<n1;i++)
+  {
+    s_hash[s[i]++;
+    if(s_hash[s[i]<=t_hash[s[i]])
+      count++;
+     if(count==n2)
+     {
+        while(t_hash[s[start]]==0||s_hash[s[start]]>t_hash[s[start]])
+         {
+            if(s_hash[s[start]]>t_hash[s[start]])
+            s_hash[s[start]]--;
+            start++;
+          }
+       if(res>i-start+1)
+       {
+          res=i-start+1;
+          start_index=start;
+        }
+    }
+    if(start_index==-1)
+    return "";
+    string ans="";
+    ans=s.substr(start_index,res);
+    return start_index==-1?"":res;
+}
